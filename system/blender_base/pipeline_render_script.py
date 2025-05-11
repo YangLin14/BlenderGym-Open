@@ -10,10 +10,26 @@ if __name__ == "__main__":
     code_fpath = sys.argv[6]  # Path to the code file
     rendering_dir = sys.argv[7] # Path to save the rendering from camera1
 
+    # # Enable GPU rendering
+    # bpy.context.scene.render.engine = 'CYCLES'
+    # bpy.context.preferences.addons['cycles'].preferences.compute_device_type = 'CUDA'  # or 'OPTIX' if your GPU supports it
+    # bpy.context.preferences.addons['cycles'].preferences.get_devices()
+
     # Enable GPU rendering
     bpy.context.scene.render.engine = 'CYCLES'
-    bpy.context.preferences.addons['cycles'].preferences.compute_device_type = 'CUDA'  # or 'OPTIX' if your GPU supports it
-    bpy.context.preferences.addons['cycles'].preferences.get_devices()
+
+    # Platform-specific GPU settings
+    if platform == 'darwin':
+        # macOS (Apple Silicon or Intel)
+        bpy.context.preferences.addons['cycles'].preferences.compute_device_type = 'METAL'
+        bpy.context.scene.cycles.device = 'GPU'
+    elif platform.startswith('linux'):
+        bpy.context.preferences.addons['cycles'].preferences.compute_device_type = 'CUDA'
+        bpy.context.scene.cycles.device = 'GPU'
+    elif platform == 'win32':
+        raise NotImplementedError("Windows platform is not supported in this script.")
+    else:
+        bpy.context.scene.cycles.device = 'CPU'  # fallback
 
     # Check and select the GPUs
     for device in bpy.context.preferences.addons['cycles'].preferences.devices:

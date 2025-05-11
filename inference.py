@@ -67,7 +67,7 @@ if __name__=='__main__':
     )
 
     parser.add_argument('--infinigen_installation_path', 
-        type=str, default=f"{os.path.abspath('infinigen/blender/blender')}", 
+        type=str, default=f"{os.path.abspath('/Applications/Blender.app/Contents/MacOS/Blender')}", 
         help="The installation path of blender executable file. It's `infinigen/blender/blender` by default."
     )
 
@@ -138,7 +138,7 @@ if __name__=='__main__':
 
     starter_time = time.strftime("%m-%d-%H-%M-%S")
     if not args.custom_vlm_system:
-        generation_results = {"output_dir_name":f"outputs_{starter_time}", 'generator_type':generator_type, 'evaluator_type': evaluator_type, 'tree_dims': tree_dims}
+        generation_results = {"output_dir_name":f"outputs_{starter_time}", 'generator_type':generator_type, 'evaluator_type': verifier_type, 'tree_dims': tree_dims}
     else:
         generation_results = {"output_dir_name":f"outputs_{starter_time}"}
 
@@ -163,7 +163,7 @@ if __name__=='__main__':
 
             # Call the VLM system
             if not custom_vlm_system:
-                if not generator_type or not evaluator_type:
+                if not generator_type or not verifier_type:
                     raise ValueError("For VLM-only usage, please indicate both generator and evaluator model.")
                 try:
                     proposal_edits_paths, proposal_renders_paths, selected_edit_path, selected_render_path = BlenderAlchemy_run(blender_file_path, start_file_path, start_render_path, goal_render_path, blender_render_script_path, task_instance_id, task, infinigen_installation_path, generator_type, evaluator_type, starter_time=starter_time, tree_dims=tree_dims)    

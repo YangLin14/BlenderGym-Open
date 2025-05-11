@@ -16,7 +16,8 @@ output:
   output_dir: "output/winky_face/"
 
 run_config:
-  blender_command: "../infinigen/blender/blender"
+  # blender_command: "../infinigen/blender/blender"
+  blender_command: "/Applications/Blender.app/Contents/MacOS/Blender"
   edit_style: "edit_code"
   num_tries: 1
   enable_visual_imagination: False 

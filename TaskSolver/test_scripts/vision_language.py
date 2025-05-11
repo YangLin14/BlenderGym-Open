@@ -84,7 +84,10 @@ if __name__=='__main__':
     question = Question(["Read the image now. What is the speed limit? ONLY RETURN THE NUMBER.", image])
 
     # interface = InternModel(task=read_speed_limit)
-    interface = ClaudeModel(api_key=api_dict['claude_api_key'], task=read_speed_limit, model='claude-3-5-sonnet-latest')
+    # interface = ClaudeModel(api_key=api_dict['claude_api_key'], task=read_speed_limit, model='claude-3-5-sonnet-latest')
+
+    interface = GPTModel(api_key=api_dict['openai_api_key'], task=read_speed_limit, model='gpt-4o-mini')
+
 
     '''
     # TODO: add your own model here. 

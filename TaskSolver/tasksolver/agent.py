@@ -78,12 +78,12 @@ class Agent(object):
             logger.info(f"creating Intern-based agent of type: OpenGVLab/InternVL2-8B.")
             self.visual_interface = InternModel(task=task, model='OpenGVLab/InternVL2-8B')
 
-        '''
-        # # TODO: Add your own model here
-        # elif vision_model == "{model_id of your model}":
-        #     logger.info(f"creating {Name of your model}-based agent of type: {vision_model}")
-        #     self.visual_interface = YourModel(task=task, model=vision_model)
-        '''
+        # '''
+        # # # TODO: Add your own model here
+        # # elif vision_model == "{model_id of your model}":
+        # #     logger.info(f"creating {Name of your model}-based agent of type: {vision_model}")
+        # #     self.visual_interface = YourModel(task=task, model=vision_model)
+        # '''
             
         else:
             raise ValueError('Model id not matched with any avalable choices.')
