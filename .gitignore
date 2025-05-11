@@ -10,6 +10,4 @@ infinigen/
 system/errors/
 errors/
 temporary/
-
-
-
+system/credentials/openai_api.txt

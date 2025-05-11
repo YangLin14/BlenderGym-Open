@@ -5,6 +5,11 @@
 
 This repo contains the evaluation code for the paper "[BlenderGym: Benchmarking Foundational Model Systems for 3D Graphics](https://arxiv.org/abs/2504.01786)".
 
+## How to Run?
+1. Add your model's api key in `system/credentials/{openai}_api.txt`
+2. 
+
+
 ## 🔔News
 1. 2025-4-11: We release BlenderGym, the first VLM System benchmark on 3D graphics editing!
 2. 2025-4-4: BlenderGym is accepted for **Highlight** at **CVPR 2025** (top 387 over 13,008 valid submissions)!
